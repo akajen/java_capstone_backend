@@ -19,6 +19,9 @@ public class MenuItemService {
     }
 
     public MenuItem save(MenuItem menuItem) {
+        if(menuItem.getAvailable() == null) {
+            menuItem.setAvailable(true);
+        }
         return menuItemRepository.save(menuItem);
     }
 

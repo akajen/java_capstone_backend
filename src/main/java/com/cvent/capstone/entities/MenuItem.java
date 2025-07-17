@@ -18,7 +18,7 @@ public class MenuItem {
     @Column(nullable = false)
     private String name;
 
-    @Column(nullable = false)
+    @Column
     private String description;
 
     @Column(nullable = false)
@@ -27,9 +27,9 @@ public class MenuItem {
     @Column(nullable = false)
     private Double price;
 
-    @Column(nullable = false)
+    @Column
     private String imageUrl;
 
-    @Column(nullable = false)
+    @Column(columnDefinition = "boolean default true")
     private Boolean available;
 }
