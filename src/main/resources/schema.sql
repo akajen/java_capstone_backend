@@ -57,20 +57,20 @@ CREATE TABLE ORDER_ITEMS (
 );
 
 ---- Films table
---CREATE TABLE films (
---    id INTEGER PRIMARY KEY,
---    title VARCHAR(100) NOT NULL,
---    homepage VARCHAR(255),
---    overview TEXT,
---    posterpath VARCHAR(255),
---    runtime INTEGER,
---    tagline VARCHAR(255),
---    popularity DECIMAL(10,1),
---    imdbid VARCHAR(20),
---    voteaverage DECIMAL(10,1),
---    votecount INTEGER
---);
---
+CREATE TABLE FILMS (
+    ID INTEGER IDENTITY PRIMARY KEY,
+    TITLE VARCHAR(100) NOT NULL,
+    HOMEPAGE VARCHAR(255),
+    OVERVIEW VARCHAR(1500),
+    POSTER_PATH VARCHAR(255),
+    RUNTIME INTEGER,
+    TAGLINE VARCHAR(255),
+    POPULARITY DECIMAL(10,1),
+    IMDBID VARCHAR(20),
+    VOTE_AVERAGE DECIMAL(10,1),
+    VOTE_COUNT INTEGER
+);
+
 ---- Indexes for better performance
 --CREATE INDEX idx_users_username ON users(USERNAME);
 --CREATE INDEX idx_users_email ON users(EMAIL);
