@@ -22,37 +22,6 @@ public class UserControllerTest {
     private UserRepository userRepository;
 
     @Test
-    @Disabled
-    void shouldCreateUser() {
-        // Given
-        User userRequest = new User(
-                (long) 1,
-                "Username",
-                "Password",
-                "Firstname",
-                "Lastname",
-                "1234567890",
-                "email@gmail.com",
-                "www.example.com/image.jpg",
-                "ABCDE1234F",
-                (long)123,
-                (long)2025,
-                "ROLE_USER");
-
-        // When
-        ResponseEntity<User> response = restTemplate.postForEntity(
-                "/api/users",
-                userRequest,
-                User.class
-        );
-
-        // Then
-        assertThat(response.getStatusCode()).isEqualTo(HttpStatus.CREATED);
-        assertThat(response.getBody().getUsername()).isEqualTo("Username");
-        assertThat(userRepository.count()).isEqualTo(1);
-    }
-
-    @Test
     void shouldReturnUserById() {
         // Given
         User newUser = User.builder()

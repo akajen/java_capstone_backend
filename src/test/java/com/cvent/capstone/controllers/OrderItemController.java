@@ -1,8 +1,7 @@
 package com.cvent.capstone.controllers;
 
-import com.cvent.capstone.entities.Order;
-import com.cvent.capstone.repositories.OrderRepository;
-import org.junit.jupiter.api.DisplayName;
+import com.cvent.capstone.entities.OrderItems;
+import com.cvent.capstone.repositories.OrderItemsRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
@@ -15,26 +14,24 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.ANY)
-
-public class OrderControllerTest {
+public class OrderItemController {
     @Autowired
     private TestRestTemplate restTemplate;
 
     @Autowired
-    private OrderRepository orderRepository;
+    private OrderItemsRepository orderItemsRepository;
 
     @Test
-    void returnsOrderById(){
-        int testOrderNum = 1001;
+    void shouldReturnOrderItemById(){
         // Given
-        // Assume that Order 1001 already exists
-
+        // Assuming that the OrderItemsRepository has a method to find order items by order ID
+        // and that there is an order with ID 1 in the database.
+        long testOrderItemId = 1;
         // When
-        ResponseEntity<Order> response = restTemplate.getForEntity("/api/orders/" + testOrderNum, Order.class);
+        ResponseEntity<OrderItems> response = restTemplate.getForEntity("/api/items/" + testOrderItemId, OrderItems.class);
 
         // Then
-         assertThat(response.getStatusCode()).isEqualTo(HttpStatus.OK);
-         assertThat(response.getBody().getId()).isEqualTo(testOrderNum);
+        assertThat(response.getStatusCode()).isEqualTo(HttpStatus.OK);
+        assertThat(response.getBody().getId()).isEqualTo(testOrderItemId);
     }
-
 }
