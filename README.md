@@ -9,6 +9,7 @@ A Java backend application for the Dinner and A Movie app, providing comprehensi
 - Built with Gradle for dependency management
 - Lightweight and easy to run
 - No external database setup required
+- API documentation available via Swagger UI
 
 ## Prerequisites
 
@@ -33,6 +34,9 @@ The application will start up and:
 - Initialize the HSQLDB in-memory database
 - Load any initial data
 - Start the web server (typically on port 8080)
+
+### Running Swagger UI
+- ONce app is running visit `http://localhost:8080/swagger-ui/index.html` to access the Swagger UI for API documentation and testing.
 
 ### Database
 
